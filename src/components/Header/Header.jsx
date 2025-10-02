@@ -1,8 +1,13 @@
+import './Header.css';
+import logoImg from '../../images/logo.png'
+
 function Header() {
   return (
     <header className="header">
       <nav className="nav">
-        <h1 className="logo">Francis</h1>
+        <div className="logo">
+          <img className='logo-image' src={logoImg} alt="Francis Logo" />
+        </div>
         <ul className="nav-links">
           <li><a href="#hero">Inicio</a></li>
           <li><a href="#about">Sobre mí</a></li>

@@ -8,7 +8,7 @@ function Main() {
       </section>
 
       {/* About Section */}
-      <section id="about" style={{ padding: "100px 20px", background: "#f5f5f5" }}>
+      <section id="about" style={{ padding: "100px 20px" }}>
         <h2>Sobre mí</h2>
         <p>
           Me dedico al desarrollo web con React, creando aplicaciones modernas
