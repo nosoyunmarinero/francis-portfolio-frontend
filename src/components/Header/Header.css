@@ -36,6 +36,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .nav-links a {
@@ -47,4 +48,28 @@
 
 .nav-links a:hover {
     color: rgba(255, 255, 255, 0.548);
+}
+
+.contact-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    border-radius: 50px; 
+    background-color: rgba(47, 64, 212, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.4rem 1.5rem;
+}
+
+.contact-container a:hover {
+    background-color: rgb(85, 123, 230);
+    color: #ffffff;
+    transform: scale(1.05);
 }
