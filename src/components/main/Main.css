@@ -1,0 +1,50 @@
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+       flex-direction: column;
+    height: 100vh;
+    gap: 1rem;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile_picture{
+    width: 108px;
+    height: 108px;
+    border-radius:50%;
+    object-fit: cover;
+}
+
+.name_box {
+    margin-top: -30px;
+  background: rgb(255, 255, 255);
+  color: black;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-weight: 650;
+}
+
+.home-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(270deg, #3498db, #2ecc71, #B3C2CB);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

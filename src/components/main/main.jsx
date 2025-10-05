@@ -1,19 +1,15 @@
+import "./Main.css"
+
 function Main() {
   return (
     <main>
-      {/* Hero Section */}
-      <section id="hero" style={{ padding: "100px 20px", textAlign: "center" }}>
-        <h2>Hola, soy Francis 👋</h2>
-        <p>Desarrollador web en formación, apasionado por crear proyectos útiles y bonitos.</p>
-      </section>
-
-      {/* About Section */}
-      <section id="about" style={{ padding: "100px 20px" }}>
-        <h2>Sobre mí</h2>
-        <p>
-          Me dedico al desarrollo web con React, creando aplicaciones modernas
-          y funcionales. En esta página encontrarás mis proyectos, redes y formas de contacto.
-        </p>
+      <section className="home" id="home">
+        <div className="profile">
+          <img className="profile_picture" src="https://s1.abcstatics.com/media/play/2021/04/28/sailor-moon-k28F--1248x698@abc.jpg" alt="profile picture" />
+          <div className="name_box">Francisco Romero</div>
+        </div>
+        <h1 className="home-heading">Crafting imagination into interactive realities.</h1>
+        <p className="home-subheading">Bringing unique ideas to life through code, design, and creativity</p>
       </section>
     </main>
   );
