@@ -1,75 +1,89 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    padding: 0.5rem 2rem;
-    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
-    backdrop-filter: blur(10px); /* Efecto blur/cristal */
-    -webkit-backdrop-filter: blur(10px); /* Para Safari */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea divisoria sutil */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 2rem;
+  background: rgba(255, 255, 255, 0.03); /* Fondo semi-transparente */
+  backdrop-filter: blur(10px); /* Efecto blur/cristal */
+  -webkit-backdrop-filter: blur(10px); /* Para Safari */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
-    margin: 0;
-    display: flex;
-    align-items: center;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .logo-image {
-    height: 50px;
-    width: auto;
-    display: block;
+  height: 50px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    align-items: center;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s;
-    font-weight: 500; /* Hace el texto más legible */
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+  font-weight: 500; /* Hace el texto más legible */
 }
 
 .nav-links a:hover {
-    color: rgba(255, 255, 255, 0.548);
+  color: rgba(255, 255, 255, 0.548);
 }
 
 .contact-container a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    border-radius: 50px; 
-    background-color: rgba(47, 64, 212, 0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-weight: 500;
-    font-size: 0.9rem;
-    padding: 0.4rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  border-radius: 50px;
+  background-color: rgba(47, 64, 212, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.4rem 1.5rem;
 }
 
 .contact-container a:hover {
-    background-color: rgb(85, 123, 230);
-    color: #ffffff;
-    transform: scale(1.05);
+  background-color: rgb(85, 123, 230);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* ---- Scroll hide/show header ---- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
 }

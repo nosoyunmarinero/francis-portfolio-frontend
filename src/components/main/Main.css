@@ -1,28 +1,30 @@
-.home{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-       flex-direction: column;
-    height: 100vh;
-    gap: 1rem;
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  padding-top: 120px;
 }
 
-.profile{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.profile_picture{
-    width: 108px;
-    height: 108px;
-    border-radius:50%;
-    object-fit: cover;
+.profile_picture {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .name_box {
-    margin-top: -30px;
+  margin-top: -30px;
   background: rgb(255, 255, 255);
   color: black;
   padding: 0.6rem 1rem;
@@ -35,7 +37,7 @@
 .home-heading {
   font-size: 2.5rem;
   font-weight: bold;
-  background: linear-gradient(270deg, #3498db, #2ecc71, #B3C2CB);
+  background: linear-gradient(270deg, #3498db, #2ecc71, #b3c2cb);
   background-size: 600% 600%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -44,7 +46,163 @@
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ==== ICONOS VERTICALES ==== */
+.tech-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+.icon {
+  font-size: 4rem;
+  transition: transform 0.9s ease, opacity 0.9s ease;
+  opacity: 0.8;
+  cursor: default;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* Colores elegantes para cada tecnología */
+.html {
+  color: #e44d26;
+}
+.css {
+  color: #1572b6;
+}
+.js {
+  color: #f7df1e;
+}
+.react {
+  color: #61dafb;
+}
+.node {
+  color: #68a063;
+}
+.mongo {
+  color: #4db33d;
+}
+.github {
+  color: #ffffff;
+}
+
+.home_projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  overflow: hidden;
+  max-width: 900px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* oculta el scroll */
+}
+
+.card {
+  min-width: 250px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.home_about {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.about_content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.about_image {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.about_text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
+}
+
+.about_button {
+  align-self: flex-start;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about_button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
