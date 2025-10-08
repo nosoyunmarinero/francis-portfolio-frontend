@@ -34,7 +34,7 @@ function Header() {
             <Link to="/projects">Projects</Link>
           </li>
           <li>
-            <div className="heacder__contact-container">
+            <div className="header__contact-container">
               <Link to="/contact">Contact</Link>
             </div>
           </li>
