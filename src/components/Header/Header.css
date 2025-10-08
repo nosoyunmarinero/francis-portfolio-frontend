@@ -1,11 +1,23 @@
+/* ========== HEADER BASE ========== */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   padding: 0.5rem 2rem;
-  background: rgba(255, 255, 255, 0.03); /* Fondo semi-transparente */
-  backdrop-filter: blur(10px); /* Efecto blur/cristal */
-  -webkit-backdrop-filter: blur(10px); /* Para Safari */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.header.header--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 .header__nav {
@@ -21,6 +33,7 @@
   margin: 0;
   display: flex;
   align-items: center;
+  z-index: 1001;
 }
 
 .header__logo-image {
@@ -29,6 +42,7 @@
   display: block;
 }
 
+/* ========== NAVEGACIÓN DESKTOP ========== */
 .header__nav-links {
   display: flex;
   gap: 2rem;
@@ -42,7 +56,7 @@
   text-decoration: none;
   color: white;
   transition: color 0.3s;
-  font-weight: 500; /* Hace el texto más legible */
+  font-weight: 500;
 }
 
 .header__nav-links a:hover {
@@ -73,17 +87,142 @@
   transform: scale(1.05);
 }
 
-/* ---- Scroll hide/show header ---- */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  z-index: 1000;
+/* ========== BOTÓN HAMBURGUESA ========== */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  z-index: 1001;
 }
 
-.header.header--hidden {
-  transform: translateY(-100%);
+.header__hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.header__hamburger.active .header__hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.header__hamburger.active .header__hamburger-line:nth-child(2) {
   opacity: 0;
+}
+
+.header__hamburger.active .header__hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ========== MEDIA QUERIES ========== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .header__logo-image {
+    height: 45px;
+  }
+
+  .header__hamburger {
+    display: flex;
+  }
+
+  .header__nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    flex-direction: column;
+    background: rgba(20, 20, 30, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 5rem 2rem 2rem 2rem;
+    gap: 2.5rem;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
+    align-items: flex-start;
+    transform: translateX(100%);
+  }
+
+  .header__nav-links.active {
+    transform: translateX(0);
+  }
+
+  .header__nav-links li {
+    width: 100%;
+  }
+
+  .header__nav-links a {
+    display: block;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+
+  .header__contact-container {
+    width: 100%;
+  }
+
+  .header__contact-container a {
+    width: 100%;
+    justify-content: center;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem 1rem;
+  }
+
+  .header__logo-image {
+    height: 40px;
+  }
+
+  .header__hamburger-line {
+    width: 22px;
+  }
+
+  .header__nav-links {
+    width: 80%;
+    padding: 4.5rem 1.5rem 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .header__nav-links a {
+    font-size: 1rem;
+  }
+
+  .header__contact-container a {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .header {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .header__logo-image {
+    height: 36px;
+  }
+
+  .header__nav-links {
+    width: 85%;
+    padding: 4rem 1.2rem 1.5rem 1.2rem;
+  }
 }
