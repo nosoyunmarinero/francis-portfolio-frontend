@@ -9,21 +9,21 @@
   padding-top: 120px;
 }
 
-.profile {
+.home__profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
 
-.profile_picture {
+.home__profile_picture {
   width: 108px;
   height: 108px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.name_box {
+.home__name_box {
   margin-top: -30px;
   background: rgb(255, 255, 255);
   color: black;

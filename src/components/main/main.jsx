@@ -29,13 +29,13 @@ function Main() {
   return (
     <main>
       <section className="home" id="home">
-        <div className="fade-section profile">
+        <div className="home__profile">
           <img
-            className="profile_picture"
+            className="home__profile_picture"
             src="https://s1.abcstatics.com/media/play/2021/04/28/sailor-moon-k28F--1248x698@abc.jpg"
             alt="profile picture"
           />
-          <div className="name_box">Francisco Romero</div>
+          <div className="home__name_box">Francisco Romero</div>
         </div>
 
         <h1 className="fade-section home-heading">

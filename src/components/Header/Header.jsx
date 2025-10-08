@@ -19,14 +19,14 @@ function Header() {
   }, []);
 
   return (
-    <header className={`header ${hidden ? "hidden" : ""}`}>
-      <nav className="nav">
-        <div className="logo">
+    <header className={`header ${hidden ? "header--hidden" : ""}`}>
+      <nav className="header__nav">
+        <div className="header__logo">
           <Link to="/">
-            <img className="logo-image" src={logoImg} alt="Francis Logo" />
+            <img className="header__logo-image" src={logoImg} alt="Francis Logo" />
           </Link>
         </div>
-        <ul className="nav-links">
+        <ul className="header__nav-links">
           <li>
             <Link to="/about">About me</Link>
           </li>
@@ -34,7 +34,7 @@ function Header() {
             <Link to="/projects">Projects</Link>
           </li>
           <li>
-            <div className="contact-container">
+            <div className="heacder__contact-container">
               <Link to="/contact">Contact</Link>
             </div>
           </li>
