@@ -10,6 +10,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { SiMongodb, SiExpress, SiTailwindcss } from "react-icons/si";
+import viteLogo from "../../images/Vitejs-logo.png";
 import { localProjects } from "../../utils/projectsData";
 
 const techIcons = {
@@ -21,6 +22,7 @@ const techIcons = {
   mongodb: <SiMongodb className="project-tech-icon" style={{ color: "#4db33d" }} />,
   express: <SiExpress className="project-tech-icon" style={{ color: "#ffffff" }} />,
   tailwind: <SiTailwindcss className="project-tech-icon" style={{ color: "#06b6d4" }} />,
+  vite: <img src={viteLogo} alt="Vite" className="project-tech-icon" style={{ width: "1.0em", height: "1.0em" }} />,
 };
 
 function Main() {
@@ -127,15 +129,15 @@ function Main() {
                       <span key={tech}>{techIcons[tech]}</span>
                     ))}
                   </div>
- <a
-  href={project.githubUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="preview-project__github-button"
->
-  <FaGithub className="preview-project__github-icon" />
-  View on GitHub
-</a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="preview-project__github-button"
+                  >
+                    <FaGithub className="preview-project__github-icon" />
+                    View on GitHub
+                  </a>
                 </div>
               </div>
             ))}

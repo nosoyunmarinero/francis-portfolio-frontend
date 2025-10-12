@@ -1,4 +1,4 @@
-/* ========== CONTENEDOR PRINCIPAL ========== */
+
 .about-container {
   min-height: 100vh;
   padding: 120px 2rem 4rem 2rem;
@@ -22,7 +22,7 @@
   width: 100%;
 }
 
-/* ========== SECCIÓN HERO ========== */
+/*  SECCIÓN HERO */
 .about-hero {
   animation: fadeInUp 1s ease 0.2s both;
 }
@@ -72,7 +72,7 @@
   }
 }
 
-/* ========== BIOGRAFÍA ========== */
+/*  BIOGRAFÍA */
 .about-bio-section {
   display: grid;
   grid-template-columns: 350px 1fr;
@@ -127,7 +127,7 @@
   margin: 0;
 }
 
-/* ========== CERTIFICACIONES ========== */
+/*  CERTIFICACIONES  */
 .about-certifications {
   animation: fadeInUp 1s ease 0.4s both;
 }
@@ -155,7 +155,7 @@
   gap: 2rem;
 }
 
-/* ========== CARD DE CERTIFICACIÓN ========== */
+/*  CARD DE CERTIFICACIÓN  */
 .certification-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
@@ -263,7 +263,7 @@
   border: 1px solid rgba(52, 152, 219, 0.3);
 }
 
-/* ========== RESPONSIVE ========== */
+
 
 /* Tablets */
 @media (max-width: 968px) {

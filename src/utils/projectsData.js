@@ -1,15 +1,21 @@
+import portfolioMockup from "../images/portfolio-mockup.png";
+
+
+
 // Proyectos 
 export const localProjects = [
   {
     id: 1,
     name: "Personal Portfolio",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-    technologies: ["react", "node", "mongodb", "express"],
+    image: portfolioMockup,
+    technologies: ["react", "node", "mongodb", "vite"],
     features: [
-      "Carrito de compras",
-      "Pasarela de pago",
-      "Panel admin",
-      "Sistema de reviews",
+       "Secciones: Sobre mí, Proyectos y Contacto",
+  "Modo oscuro/claro",
+  "Animaciones suaves y transiciones",
+  "Responsive Design para móviles y desktop",
+  "Formulario de contacto funcional",
+  "Integración con GitHub",
     ],
   },
   {

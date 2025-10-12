@@ -1,33 +1,49 @@
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
 body {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  margin: 0;
+  background: #000;
   color: white;
-  background-image: url('./images/background.jpg');
-  background-size: cover; /* Cubre toda la pantalla */
-  background-position: center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Evita que se repita */
-  background-attachment: fixed; /* Fija el background al scrollear */
-  margin: 0; /* Elimina márgenes por defecto */
+  overflow-x: hidden;
   font-family: 'Noto Sans', sans-serif;
 }
-main {
-  flex: 1;
+
+/* Capas de flashes */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+
+  background: 
+    radial-gradient(circle, rgba(52,152,219,0.35) 0%, transparent 70%),
+    radial-gradient(circle, rgba(46,204,113,0.3) 0%, transparent 60%),
+    radial-gradient(circle, rgba(155,89,182,0.25) 0%, transparent 80%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.03)' /%3E%3C/svg%3E");
+    
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-position: 20% 30%, 70% 60%, 50% 80%, 0 0;
+  background-size: 300px 300px, 400px 400px, 250px 250px, 100px 100px;
+  animation: floatBackground 15s infinite alternate;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.12;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' /%3E%3C/svg%3E");
+@keyframes floatBackground {
+  0% {
+    background-position: 10% 20%, 60% 50%, 40% 70%, 0 0;
+  }
+  25% {
+    background-position: 30% 40%, 80% 30%, 50% 60%, 0 0;
+  }
+  50% {
+    background-position: 20% 60%, 70% 70%, 60% 50%, 0 0;
+  }
+  75% {
+    background-position: 40% 50%, 50% 80%, 30% 30%, 0 0;
+  }
+  100% {
+    background-position: 20% 20%, 70% 60%, 50% 80%, 0 0;
+  }
 }

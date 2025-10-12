@@ -11,6 +11,7 @@ import { SiMongodb, SiExpress, SiTailwindcss } from "react-icons/si";
 import { X } from "lucide-react";
 import "./Projects.css";
 import { localProjects } from "../../utils/projectsData";
+import viteLogo from "../../images/Vitejs-logo.png";
 
 const techIcons = {
   html: <FaHtml5 className="tech-icon" style={{ color: "#e44d26" }} />,
@@ -20,9 +21,8 @@ const techIcons = {
   node: <FaNodeJs className="tech-icon" style={{ color: "#68a063" }} />,
   mongodb: <SiMongodb className="tech-icon" style={{ color: "#4db33d" }} />,
   express: <SiExpress className="tech-icon" style={{ color: "#ffffff" }} />,
-  tailwind: (
-    <SiTailwindcss className="tech-icon" style={{ color: "#06b6d4" }} />
-  ),
+  tailwind: <SiTailwindcss className="tech-icon" style={{ color: "#06b6d4" }} />,
+  vite: <img src={viteLogo} alt="Vite" className="tech-icon" style={{ width: "1em", height: "1em" }} />,
 };
 
 function Projects() {

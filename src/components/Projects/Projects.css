@@ -1,4 +1,4 @@
-/* ========== CONTENEDOR PRINCIPAL ========== */
+/*  CONTENEDOR PRINCIPAL  */
 .projects-container {
   min-height: 100vh;
   padding: 120px 2rem 4rem 2rem;
@@ -22,7 +22,7 @@
   width: 100%;
 }
 
-/* ========== TÍTULO Y DESCRIPCIÓN ========== */
+/*  TÍTULO Y DESCRIPCIÓN  */
 .projects-title {
   font-size: 3rem;
   font-weight: bold;
@@ -78,7 +78,7 @@
   }
 }
 
-/* ========== GRID DE PROYECTOS ========== */
+/* GRID DE PROYECTOS */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -86,7 +86,8 @@
   margin-top: 3rem;
 }
 
-/* ========== CARD DEL PROYECTO ========== */
+/* 
+ CARD DEL PROYECTO  */
 .project-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
@@ -379,7 +380,6 @@
   transform: translateY(-2px);
 }
 
-/* ========== RESPONSIVE ========== */
 
 /* Tablets */
 @media (max-width: 768px) {
