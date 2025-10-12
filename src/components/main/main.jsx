@@ -1,5 +1,5 @@
 import "./Main.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaHtml5,
@@ -9,12 +9,44 @@ import {
   FaNodeJs,
   FaGithub,
 } from "react-icons/fa";
-import { SiMongodb } from "react-icons/si";
+import { SiMongodb, SiExpress, SiTailwindcss } from "react-icons/si";
+import { localProjects } from "../../utils/projectsData";
+
+const techIcons = {
+  html: <FaHtml5 className="project-tech-icon" style={{ color: "#e44d26" }} />,
+  css: <FaCss3Alt className="project-tech-icon" style={{ color: "#1572b6" }} />,
+  javascript: <FaJs className="project-tech-icon" style={{ color: "#f7df1e" }} />,
+  react: <FaReact className="project-tech-icon" style={{ color: "#61dafb" }} />,
+  node: <FaNodeJs className="project-tech-icon" style={{ color: "#68a063" }} />,
+  mongodb: <SiMongodb className="project-tech-icon" style={{ color: "#4db33d" }} />,
+  express: <SiExpress className="project-tech-icon" style={{ color: "#ffffff" }} />,
+  tailwind: <SiTailwindcss className="project-tech-icon" style={{ color: "#06b6d4" }} />,
+};
 
 function Main() {
+  const [githubRepos, setGithubRepos] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/nosoyunmarinero/repos")
+      .then((res) => res.json())
+      .then((data) => {
+        const repos = data.slice(0, 6).map((repo, i) => ({
+          id: localProjects[i]?.id || repo.id,
+          name: localProjects[i]?.name || repo.name,
+          repoName: repo.name,
+          description: repo.description || "No description available",
+          githubUrl: repo.html_url,
+          liveUrl: repo.homepage || "#",
+          image: localProjects[i]?.image,
+          technologies: localProjects[i]?.technologies || [],
+          features: localProjects[i]?.features || [],
+        }));
+        setGithubRepos(repos);
+      });
+  }, []);
+
   useEffect(() => {
     const sections = document.querySelectorAll(".fade-section");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -23,42 +55,10 @@ function Main() {
       },
       { threshold: 0.5 }
     );
-
     sections.forEach((sec) => observer.observe(sec));
   }, []);
 
-  // Proyectos de vista previa (primeros 3)
-  const previewProjects = [
-    {
-      id: 1,
-      name: 'E-Commerce Platform',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-      technologies: [
-        <FaReact key="react" className="project-tech-icon" style={{ color: '#61dafb' }} />,
-        <FaNodeJs key="node" className="project-tech-icon" style={{ color: '#68a063' }} />,
-        <SiMongodb key="mongo" className="project-tech-icon" style={{ color: '#4db33d' }} />
-      ]
-    },
-    {
-      id: 2,
-      name: 'Task Manager App',
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80',
-      technologies: [
-        <FaReact key="react" className="project-tech-icon" style={{ color: '#61dafb' }} />,
-        <FaJs key="js" className="project-tech-icon" style={{ color: '#f7df1e' }} />
-      ]
-    },
-    {
-      id: 3,
-      name: 'Weather Dashboard',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&q=80',
-      technologies: [
-        <FaHtml5 key="html" className="project-tech-icon" style={{ color: '#e44d26' }} />,
-        <FaCss3Alt key="css" className="project-tech-icon" style={{ color: '#1572b6' }} />,
-        <FaJs key="js" className="project-tech-icon" style={{ color: '#f7df1e' }} />
-      ]
-    }
-  ];
+  const previewProjects = githubRepos.slice(0, 3);
 
   return (
     <main>
@@ -94,15 +94,15 @@ function Main() {
           <div className="about_content">
             <img
               className="about_image"
-              src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2070&auto=format&fit=crop"
               alt="About me"
             />
             <div className="about_text">
               <h2>About Me</h2>
               <p>
-                I'm a passionate full-stack developer who loves creating
-                elegant, functional, and meaningful digital experiences through
-                creativity and code.
+                I'm a passionate full-stack developer who loves creating elegant,
+                functional, and meaningful digital experiences through creativity
+                and code.
               </p>
               <a href="/about" className="about_button">
                 Learn More →
@@ -113,7 +113,7 @@ function Main() {
 
         <div className="fade-section home_projects">
           <h2 className="home_projects-heading">Featured Projects</h2>
-          
+
           <div className="projects-preview-grid">
             {previewProjects.map((project) => (
               <div key={project.id} className="preview-project-card">
@@ -123,8 +123,19 @@ function Main() {
                 <div className="preview-project-content">
                   <h3 className="preview-project-title">{project.name}</h3>
                   <div className="preview-project-technologies">
-                    {project.technologies}
+                    {project.technologies.map((tech) => (
+                      <span key={tech}>{techIcons[tech]}</span>
+                    ))}
                   </div>
+ <a
+  href={project.githubUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="preview-project__github-button"
+>
+  <FaGithub className="preview-project__github-icon" />
+  View on GitHub
+</a>
                 </div>
               </div>
             ))}

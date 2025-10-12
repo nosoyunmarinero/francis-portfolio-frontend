@@ -10,6 +10,7 @@ import {
 import { SiMongodb, SiExpress, SiTailwindcss } from "react-icons/si";
 import { X } from "lucide-react";
 import "./Projects.css";
+import { localProjects } from "../../utils/projectsData";
 
 const techIcons = {
   html: <FaHtml5 className="tech-icon" style={{ color: "#e44d26" }} />,
@@ -28,74 +29,6 @@ function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [githubRepos, setGithubRepos] = useState([]);
 
-  // 🔹 Tus proyectos con títulos personalizados, imágenes, tecnologías y features
-  const localProjects = [
-    {
-      id: 1,
-      name: "E-Commerce Platform",
-      image:
-        "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-      technologies: ["react", "node", "mongodb", "express"],
-      features: [
-        "Carrito de compras",
-        "Pasarela de pago",
-        "Panel admin",
-        "Sistema de reviews",
-      ],
-    },
-    {
-      id: 2,
-      name: "Task Manager App",
-      image:
-        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      technologies: ["react", "tailwind", "javascript"],
-      features: ["Drag & Drop", "Categorías", "Modo oscuro", "Local storage"],
-    },
-    {
-      id: 3,
-      name: "Weather Dashboard",
-      image:
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&q=80",
-      technologies: ["html", "css", "javascript"],
-      features: ["API del clima", "Gráficos", "Geolocalización", "Responsive"],
-    },
-    {
-      id: 4,
-      name: "Portfolio CMS",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      technologies: ["react", "node", "mongodb"],
-      features: ["Editor visual", "Templates", "SEO optimizado", "Analytics"],
-    },
-    {
-      id: 5,
-      name: "Social Media Dashboard",
-      image:
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-      technologies: ["react", "tailwind", "node"],
-      features: [
-        "Tiempo real",
-        "Gráficos",
-        "Multi-plataforma",
-        "Exportar datos",
-      ],
-    },
-    {
-      id: 6,
-      name: "Recipe Finder",
-      image:
-        "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&q=80",
-      technologies: ["react", "javascript", "css"],
-      features: [
-        "Búsqueda avanzada",
-        "Favoritos",
-        "Modo cocina",
-        "Calculadora nutricional",
-      ],
-    },
-  ];
-
-  // 🔹 Traer los datos reales desde GitHub y combinarlos con tus datos locales
   useEffect(() => {
     fetch("https://api.github.com/users/nosoyunmarinero/repos")
       .then((res) => res.json())
