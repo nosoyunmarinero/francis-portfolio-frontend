@@ -86,8 +86,8 @@ export const fetchAllProjects = async () => {
       description: repo.description || "No description available",
       githubUrl: repo.html_url,
       liveUrl: repo.homepage || "#",
-      image: null, // puedes agregar imagen si quieres
-      technologies: [], // opcional, puedes agregar manualmente
+      image: null, 
+      technologies: [], 
       features: [],
     }));
 
