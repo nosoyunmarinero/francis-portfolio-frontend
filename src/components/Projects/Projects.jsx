@@ -21,8 +21,17 @@ const techIcons = {
   node: <FaNodeJs className="tech-icon" style={{ color: "#68a063" }} />,
   mongodb: <SiMongodb className="tech-icon" style={{ color: "#4db33d" }} />,
   express: <SiExpress className="tech-icon" style={{ color: "#ffffff" }} />,
-  tailwind: <SiTailwindcss className="tech-icon" style={{ color: "#06b6d4" }} />,
-  vite: <img src={viteLogo} alt="Vite" className="tech-icon" style={{ width: "1em", height: "1em" }} />,
+  tailwind: (
+    <SiTailwindcss className="tech-icon" style={{ color: "#06b6d4" }} />
+  ),
+  vite: (
+    <img
+      src={viteLogo}
+      alt="Vite"
+      className="tech-icon"
+      style={{ width: "1em", height: "1em" }}
+    />
+  ),
 };
 
 function Projects() {
@@ -30,23 +39,25 @@ function Projects() {
   const [githubRepos, setGithubRepos] = useState([]);
 
   useEffect(() => {
-  fetch("https://api.github.com/users/nosoyunmarinero/repos")
-    .then((res) => res.json())
-    .then((data) => {
-      const githubProjects = data.map((repo) => ({
-        id: repo.id,
-        name: repo.name,
-        repoName: repo.name,
-        description: repo.description || "No description available",
-        githubUrl: repo.html_url,
-        liveUrl: repo.homepage || "#",
-        image: null, 
-        technologies: [],
-        features: [],
-      }));
-      setGithubRepos([...localProjects, ...githubProjects]);
-    });
-}, []);
+    fetch("https://api.github.com/users/nosoyunmarinero/repos")
+      .then((res) => res.json())
+      .then((data) => {
+        const projects = localProjects.map((project) => {
+          // Buscamos el repo de GitHub que coincida con el nombre
+          const repo = data.find((r) => r.name === project.name);
+
+          return {
+            ...project,
+            repoName: repo?.name || null,
+            description: repo?.description || "No description available",
+            githubUrl: repo?.html_url || "#",
+            liveUrl: repo?.homepage || "#",
+          };
+        });
+
+        setGithubRepos(projects);
+      });
+  }, []);
 
   const openModal = (project) => {
     setSelectedProject(project);
