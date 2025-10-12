@@ -1,8 +1,6 @@
 import portfolioMockup from "../images/portfolio-mockup.png";
 
-
-
-// Proyectos 
+// Proyectos locales/manuales
 export const localProjects = [
   {
     id: 1,
@@ -10,12 +8,12 @@ export const localProjects = [
     image: portfolioMockup,
     technologies: ["react", "node", "mongodb", "vite"],
     features: [
-       "Secciones: Sobre mí, Proyectos y Contacto",
-  "Modo oscuro/claro",
-  "Animaciones suaves y transiciones",
-  "Responsive Design para móviles y desktop",
-  "Formulario de contacto funcional",
-  "Integración con GitHub",
+      "Secciones: Sobre mí, Proyectos y Contacto",
+      "Modo oscuro/claro",
+      "Animaciones suaves y transiciones",
+      "Responsive Design para móviles y desktop",
+      "Formulario de contacto funcional",
+      "Integración con GitHub",
     ],
   },
   {
@@ -63,29 +61,39 @@ export const localProjects = [
       "Calculadora nutricional",
     ],
   },
+  /*
+  {
+    id: 100,
+    name: "Nuevo Proyecto Manual",
+    image: "/images/manual-project.png",
+    technologies: ["react", "vite"],
+    features: ["Feature 1", "Feature 2"],
+  },
+  */
 ];
 
-// GITHUB API
+// Función para traer proyectos de GitHub combinando con locales
 export const fetchGitHubProjects = async () => {
   try {
     const response = await fetch("https://api.github.com/users/nosoyunmarinero/repos");
     const data = await response.json();
-    
-    const repos = data.slice(0, 6).map((repo, i) => ({
+
+    const repos = data.map((repo, i) => ({
       id: localProjects[i]?.id || repo.id,
       name: localProjects[i]?.name || repo.name,
       repoName: repo.name,
-      description: repo.description || "No description available",
+      description: localProjects[i]?.description || repo.description || "No description available",
       githubUrl: repo.html_url,
-      liveUrl: repo.homepage || "#",
+      liveUrl: localProjects[i]?.liveUrl || repo.homepage || "#",
       image: localProjects[i]?.image,
       technologies: localProjects[i]?.technologies || [],
       features: localProjects[i]?.features || [],
     }));
-    
+
     return repos;
   } catch (error) {
     console.error("Error fetching GitHub repos:", error);
-    return [];
+    // Siempre devolver al menos los proyectos locales
+    return [...localProjects];
   }
 };
