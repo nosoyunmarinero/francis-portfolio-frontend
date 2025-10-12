@@ -61,7 +61,7 @@ export const localProjects = [
       "Calculadora nutricional",
     ],
   },
-  /*
+  
   {
     id: 100,
     name: "Nuevo Proyecto Manual",
@@ -69,31 +69,33 @@ export const localProjects = [
     technologies: ["react", "vite"],
     features: ["Feature 1", "Feature 2"],
   },
-  */
+  
 ];
 
 // Función para traer proyectos de GitHub combinando con locales
-export const fetchGitHubProjects = async () => {
+export const fetchAllProjects = async () => {
   try {
     const response = await fetch("https://api.github.com/users/nosoyunmarinero/repos");
-    const data = await response.json();
+    const githubData = await response.json();
 
-    const repos = data.map((repo, i) => ({
-      id: localProjects[i]?.id || repo.id,
-      name: localProjects[i]?.name || repo.name,
+    // Transformamos todos los repos de GitHub
+    const githubProjects = githubData.map((repo) => ({
+      id: repo.id,
+      name: repo.name,
       repoName: repo.name,
-      description: localProjects[i]?.description || repo.description || "No description available",
+      description: repo.description || "No description available",
       githubUrl: repo.html_url,
-      liveUrl: localProjects[i]?.liveUrl || repo.homepage || "#",
-      image: localProjects[i]?.image,
-      technologies: localProjects[i]?.technologies || [],
-      features: localProjects[i]?.features || [],
+      liveUrl: repo.homepage || "#",
+      image: null, // puedes agregar imagen si quieres
+      technologies: [], // opcional, puedes agregar manualmente
+      features: [],
     }));
 
-    return repos;
+    // Combinar locales + GitHub
+    return [...localProjects, ...githubProjects];
   } catch (error) {
     console.error("Error fetching GitHub repos:", error);
-    // Siempre devolver al menos los proyectos locales
+    // Si falla GitHub, solo devolver locales
     return [...localProjects];
   }
 };

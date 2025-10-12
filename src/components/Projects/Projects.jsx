@@ -30,23 +30,23 @@ function Projects() {
   const [githubRepos, setGithubRepos] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/nosoyunmarinero/repos")
-      .then((res) => res.json())
-      .then((data) => {
-        const repos = data.slice(0, 6).map((repo, i) => ({
-          id: localProjects[i]?.id || repo.id,
-          name: localProjects[i]?.name || repo.name,
-          repoName: repo.name,
-          description: repo.description || "No description available",
-          githubUrl: repo.html_url,
-          liveUrl: repo.homepage || "#",
-          image: localProjects[i]?.image,
-          technologies: localProjects[i]?.technologies || [],
-          features: localProjects[i]?.features || [],
-        }));
-        setGithubRepos(repos);
-      });
-  }, []);
+  fetch("https://api.github.com/users/nosoyunmarinero/repos")
+    .then((res) => res.json())
+    .then((data) => {
+      const githubProjects = data.map((repo) => ({
+        id: repo.id,
+        name: repo.name,
+        repoName: repo.name,
+        description: repo.description || "No description available",
+        githubUrl: repo.html_url,
+        liveUrl: repo.homepage || "#",
+        image: null, 
+        technologies: [],
+        features: [],
+      }));
+      setGithubRepos([...localProjects, ...githubProjects]);
+    });
+}, []);
 
   const openModal = (project) => {
     setSelectedProject(project);
