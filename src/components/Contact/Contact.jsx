@@ -39,13 +39,13 @@ function Contact() {
           <FaGithub /> GitHub
         </a>
         <a
-          href="https://www.linkedin.com/in/nosoyunmarinero"
+          href="https://www.linkedin.com/in/francisco-romero-ab816326b/"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaLinkedin /> LinkedIn
         </a>
-        <a href="mailto:tuemail@gmail.com">
+        <a href="mailto:nosoyunmarinero@gmail.com">
           <FaEnvelope /> Email
         </a>
         <a
