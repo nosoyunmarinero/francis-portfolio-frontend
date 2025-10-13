@@ -1,10 +1,14 @@
 import portfolioMockup from "../images/portfolio-mockup.png";
+import AroundImage from "../images/aroundss.png";
+import AroundGif from "../images/Around.gif";
 
 export const localProjects = [
   {
     id: 1,
     name: "Personal Portfolio",
+     repoName: "francis-portfolio-frontend",
     image: portfolioMockup,
+    image2: null,
     technologies: ["react", "node", "mongodb", "vite"],
     features: [
       "Carrito de compras",
@@ -15,59 +19,22 @@ export const localProjects = [
   },
   {
     id: 2,
-    name: "Task Manager App",
-    image:
-      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-    technologies: ["react", "tailwind", "javascript"],
-    features: ["Drag & Drop", "Categorías", "Modo oscuro", "Local storage"],
+    name: "Around the US",
+    repoName: "web_project_api_full",
+    image: AroundImage,
+    image2: AroundGif,
+    technologies: ["react", "html", "javascript", "express", "mongodb", "node"],
+    features: ["Social Media", "Share", "Database"],
   },
   {
     id: 3,
-    name: "Weather Dashboard",
+    name: "Crab Jump",
+    repoName: "Crab-Jump",
     image:
-      "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&q=80",
-    technologies: ["html", "css", "javascript"],
-    features: ["API del clima", "Gráficos", "Geolocalización", "Responsive"],
+      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    technologies: ["HTML", "javascript"],
+    features: ["Drag & Drop", "Categorías", "Modo oscuro", "Local storage"],
   },
-  {
-    id: 4,
-    name: "Portfolio CMS",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    technologies: ["react", "node", "mongodb"],
-    features: ["Editor visual", "Templates", "SEO optimizado", "Analytics"],
-  },
-  {
-    id: 5,
-    name: "Social Media Dashboard",
-    image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-    technologies: ["react", "tailwind", "node"],
-    features: ["Tiempo real", "Gráficos", "Multi-plataforma", "Exportar datos"],
-  },
-  {
-    id: 6,
-    name: "Recipe Finder",
-    image:
-      "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&q=80",
-    technologies: ["react", "javascript", "css"],
-    features: [
-      "Búsqueda avanzada",
-      "Favoritos",
-      "Modo cocina",
-      "Calculadora nutricional",
-    ],
-  },
-  // Template comentado para agregar proyectos manuales
-  /*
-  {
-    id: 101,
-    name: "Nombre del proyecto",
-    image: "ruta o url de la imagen",
-    technologies: ["tech1", "tech2"],
-    features: ["Feature 1", "Feature 2"],
-  },
-  */
 ];
 
 export const fetchGitHubProjects = async () => {
@@ -85,6 +52,7 @@ export const fetchGitHubProjects = async () => {
       githubUrl: repo.html_url,
       liveUrl: repo.homepage || "#",
       image: localProjects[i]?.image,
+      image2: localProjects[i]?.image2,
       technologies: localProjects[i]?.technologies || [],
       features: localProjects[i]?.features || [],
     }));

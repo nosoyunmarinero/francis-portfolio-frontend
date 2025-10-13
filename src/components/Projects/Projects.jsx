@@ -39,25 +39,36 @@ function Projects() {
   const [githubRepos, setGithubRepos] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/nosoyunmarinero/repos")
-      .then((res) => res.json())
-      .then((data) => {
-        const projects = localProjects.map((project) => {
-          // Buscamos el repo de GitHub que coincida con el nombre
-          const repo = data.find((r) => r.name === project.name);
+  fetch("https://api.github.com/users/nosoyunmarinero/repos")
+    .then((res) => res.json())
+    .then((data) => {
+      const projects = localProjects
+        .map((project) => {
+          // Busca el repo que coincida exactamente con repoName
+          const repo = data.find((r) => r.name === project.repoName);
+
+          // Si no encuentra el repo, retorna null
+          if (!repo) {
+            console.warn(`Repo "${project.repoName}" no encontrado en GitHub`);
+            return null;
+          }
 
           return {
             ...project,
-            repoName: repo?.name || null,
-            description: repo?.description || "No description available",
-            githubUrl: repo?.html_url || "#",
-            liveUrl: repo?.homepage || "#",
+            description: repo.description || "No description available",
+            githubUrl: repo.html_url,
+            liveUrl: repo.homepage || "#",
           };
-        });
+        })
+        .filter(Boolean); // Filtra los null (repos no encontrados)
 
-        setGithubRepos(projects);
-      });
-  }, []);
+      setGithubRepos(projects);
+    })
+    .catch((error) => {
+      console.error("Error fetching GitHub repos:", error);
+      setGithubRepos([]);
+    });
+}, []);
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -107,6 +118,7 @@ function Projects() {
         </div>
       </div>
 
+          
       {selectedProject && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -115,7 +127,7 @@ function Projects() {
             </button>
 
             <div className="modal-image">
-              <img src={selectedProject.image} alt={selectedProject.name} />
+              <img src={selectedProject.image2 || selectedProject.image} alt={selectedProject.name} />
             </div>
 
             <div className="modal-body">

@@ -49,15 +49,10 @@ function Contact() {
           <FaEnvelope /> Email
         </a>
         <a
-          href="https://www.fiverr.com/nosoyunmarinero"
+          href="https://es.fiverr.com/s/jjrqdbV"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          <img
-            src={fiverrLogo}
-            alt="Fiverr"
-            style={{ width: "20px", height: "20px", marginRight: "6px" }}
-          />
+        > 
           Fiverr
         </a>
       </div>
