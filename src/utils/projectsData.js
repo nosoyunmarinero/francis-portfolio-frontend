@@ -11,11 +11,15 @@ export const localProjects = [
     image2: null,
     technologies: ["react", "node", "mongodb", "vite"],
     features: [
-      "Carrito de compras",
-      "Pasarela de pago",
-      "Panel admin",
-      "Sistema de reviews",
-    ],
+  "Modern React Architecture",
+  "Smooth Animations",
+  "Project Showcase",
+  "SEO Optimized",
+  "Responsive Design",
+  "Interactive UI",
+  "Dynamic Routing",
+  "Contact Form",
+],
   },
   {
     id: 2,
@@ -33,7 +37,7 @@ export const localProjects = [
     image:
       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
     technologies: ["HTML", "javascript"],
-    features: ["Drag & Drop", "Categorías", "Modo oscuro", "Local storage"],
+    features: ["Canvas", "Local storage", "Loop", "game"],
   },
 ];
 
