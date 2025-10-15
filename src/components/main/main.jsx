@@ -16,13 +16,28 @@ import { localProjects } from "../../utils/projectsData";
 const techIcons = {
   html: <FaHtml5 className="project-tech-icon" style={{ color: "#e44d26" }} />,
   css: <FaCss3Alt className="project-tech-icon" style={{ color: "#1572b6" }} />,
-  javascript: <FaJs className="project-tech-icon" style={{ color: "#f7df1e" }} />,
+  javascript: (
+    <FaJs className="project-tech-icon" style={{ color: "#f7df1e" }} />
+  ),
   react: <FaReact className="project-tech-icon" style={{ color: "#61dafb" }} />,
   node: <FaNodeJs className="project-tech-icon" style={{ color: "#68a063" }} />,
-  mongodb: <SiMongodb className="project-tech-icon" style={{ color: "#4db33d" }} />,
-  express: <SiExpress className="project-tech-icon" style={{ color: "#ffffff" }} />,
-  tailwind: <SiTailwindcss className="project-tech-icon" style={{ color: "#06b6d4" }} />,
-  vite: <img src={viteLogo} alt="Vite" className="project-tech-icon" style={{ width: "1.0em", height: "1.0em" }} />,
+  mongodb: (
+    <SiMongodb className="project-tech-icon" style={{ color: "#4db33d" }} />
+  ),
+  express: (
+    <SiExpress className="project-tech-icon" style={{ color: "#ffffff" }} />
+  ),
+  tailwind: (
+    <SiTailwindcss className="project-tech-icon" style={{ color: "#06b6d4" }} />
+  ),
+  vite: (
+    <img
+      src={viteLogo}
+      alt="Vite"
+      className="project-tech-icon"
+      style={{ width: "1.0em", height: "1.0em" }}
+    />
+  ),
 };
 
 function Main() {
@@ -102,13 +117,13 @@ function Main() {
             <div className="about_text">
               <h2>About Me</h2>
               <p>
-                I'm a passionate full-stack developer who loves creating elegant,
-                functional, and meaningful digital experiences through creativity
-                and code.
+                I'm a passionate full-stack developer who loves creating
+                elegant, functional, and meaningful digital experiences through
+                creativity and code.
               </p>
-              <a href="/about" className="about_button">
+              <Link to="/about" className="about_button">
                 Learn More →
-              </a>
+              </Link>
             </div>
           </div>
         </div>
