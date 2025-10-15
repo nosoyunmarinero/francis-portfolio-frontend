@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Header from "./Header/Header";
 import Main from "./Main/main.jsx";
@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/francis-portfolio-frontend">
+    <Router>
       {loading && <Preloader />}
       <Header />
       <Routes>
