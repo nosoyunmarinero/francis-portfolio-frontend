@@ -106,7 +106,7 @@ function Main() {
                 functional, and meaningful digital experiences through creativity
                 and code.
               </p>
-              <a href="/about" className="about_button">
+              <a href="/About" className="about_button">
                 Learn More →
               </a>
             </div>
