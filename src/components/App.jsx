@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from 'react';import Header from "./Header/Header";
+import { useState, useEffect } from 'react';
+import Header from "./Header/Header";
 import Main from "./Main/main.jsx";
 import Footer from "./Footer/Footer";
 import About from "./About/About.jsx";
@@ -12,13 +13,13 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  window.addEventListener('load', () => {
-    setLoading(false);
-  });
-}, []);;
+    window.addEventListener('load', () => {
+      setLoading(false);
+    });
+  }, []);
 
   return (
-    <Router>
+    <Router basename="/francis-portfolio-frontend">
       {loading && <Preloader />}
       <Header />
       <Routes>
