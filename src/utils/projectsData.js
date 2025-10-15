@@ -9,6 +9,7 @@ export const localProjects = [
      repoName: "francis-portfolio-frontend",
     image: portfolioMockup,
     image2: null,
+    liveUrl: "https://nosoyunmarinero.github.io/francis-portfolio-frontend/",
     technologies: ["react", "node", "mongodb", "vite"],
     features: [
   "Modern React Architecture",
@@ -27,6 +28,7 @@ export const localProjects = [
     repoName: "web_project_api_full",
     image: AroundImage,
     image2: AroundGif,
+    liveUrl: "https://nosoyunmarinero.github.io/web_project_api_full/",
     technologies: ["react", "html", "javascript", "express", "mongodb", "node"],
     features: ["Social Media", "Share", "Database"],
   },
@@ -36,6 +38,7 @@ export const localProjects = [
     repoName: "Crab-Jump",
     image:
       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    liveUrl: "https://nosoyunmarinero.github.io/Crab-Jump/",
     technologies: ["HTML", "javascript"],
     features: ["Canvas", "Local storage", "Loop", "game"],
   },
