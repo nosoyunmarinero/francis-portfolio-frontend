@@ -39,7 +39,7 @@ function Contact() {
           <FaGithub /> GitHub
         </a>
         <a
-          href="https://www.linkedin.com/in/francisco-romero-ab816326b/"
+          href="https://www.linkedin.com/in/franciscoromerov/"
           target="_blank"
           rel="noopener noreferrer"
         >
