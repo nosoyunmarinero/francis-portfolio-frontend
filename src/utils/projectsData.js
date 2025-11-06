@@ -1,6 +1,8 @@
 import portfolioMockup from "../images/portfolio-mockup.png";
 import AroundImage from "../images/aroundss.png";
 import AroundGif from "../images/Around.gif";
+import CrabJump from "../images/Crab-jump.png"
+import CrabGif from "../images/crab.gif"
 
 export const localProjects = [
   {
@@ -36,8 +38,8 @@ export const localProjects = [
     id: 3,
     name: "Crab Jump",
     repoName: "Crab-Jump",
-    image:
-      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    image: CrabJump,
+    image2: CrabGif,
     liveUrl: "https://nosoyunmarinero.github.io/Crab-Jump/",
     technologies: ["HTML", "javascript"],
     features: ["Canvas", "Local storage", "Loop", "game"],
