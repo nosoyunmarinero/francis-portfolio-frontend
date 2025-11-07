@@ -12,6 +12,7 @@ import {
 import { SiMongodb, SiExpress, SiTailwindcss } from "react-icons/si";
 import viteLogo from "../../images/Vitejs-logo.png";
 import { localProjects } from "../../utils/projectsData";
+import heroImg from "../../images/hero.jpg";
 
 const techIcons = {
   html: <FaHtml5 className="project-tech-icon" style={{ color: "#e44d26" }} />,
@@ -98,7 +99,7 @@ function Main() {
         <div className="home__profile">
           <img
             className="home__profile_picture"
-            src="https://s1.abcstatics.com/media/play/2021/04/28/sailor-moon-k28F--1248x698@abc.jpg"
+            src={heroImg}
             alt="profile picture"
           />
           <div className="home__name_box">Francisco Romero</div>
