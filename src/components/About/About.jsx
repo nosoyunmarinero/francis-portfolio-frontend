@@ -1,73 +1,13 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
 import './About.css';
+import { certifications } from '../../utils/certificationsData';
 
 function About() {
   const [selectedCert, setSelectedCert] = useState(null);
+  const [showImageModal, setShowImageModal] = useState(false);
 
-  // Certificaciones - PERSONALIZA CON TUS DATOS REALES
-  const certifications = [
-    {
-      id: 1,
-      name: 'Full Stack Web Development',
-      institution: 'freeCodeCamp',
-      logo: 'https://design-style-guide.freecodecamp.org/downloads/fcc_secondary_small.jpg',
-      date: '2024',
-      skills: ['React', 'Node.js', 'MongoDB', 'Express'],
-      description: 'Comprehensive bootcamp covering full-stack web development with modern technologies and best practices.',
-      credentialUrl: 'https://freecodecamp.org/certification/example'
-    },
-    {
-      id: 2,
-      name: 'JavaScript Algorithms',
-      institution: 'freeCodeCamp',
-      logo: 'https://design-style-guide.freecodecamp.org/downloads/fcc_secondary_small.jpg',
-      date: '2023',
-      skills: ['JavaScript', 'Algorithms', 'Data Structures'],
-      description: 'Deep dive into JavaScript algorithms and data structures with hands-on problem solving exercises.',
-      credentialUrl: 'https://freecodecamp.org/certification/example'
-    },
-    {
-      id: 3,
-      name: 'Responsive Web Design',
-      institution: 'freeCodeCamp',
-      logo: 'https://design-style-guide.freecodecamp.org/downloads/fcc_secondary_small.jpg',
-      date: '2023',
-      skills: ['HTML5', 'CSS3', 'Flexbox', 'Grid'],
-      description: 'Master responsive web design principles, CSS Grid, Flexbox, and modern layout techniques.',
-      credentialUrl: 'https://freecodecamp.org/certification/example'
-    },
-    {
-      id: 4,
-      name: 'React Complete Guide',
-      institution: 'Udemy',
-      logo: 'https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg',
-      date: '2024',
-      skills: ['React', 'Hooks', 'Redux', 'Context API'],
-      description: 'Complete React course covering hooks, state management, performance optimization, and advanced patterns.',
-      credentialUrl: 'https://udemy.com/certificate/example'
-    },
-    {
-      id: 5,
-      name: 'Node.js Developer',
-      institution: 'Udemy',
-      logo: 'https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg',
-      date: '2024',
-      skills: ['Node.js', 'Express', 'REST APIs', 'MongoDB'],
-      description: 'Backend development with Node.js, Express framework, RESTful API design, and database integration.',
-      credentialUrl: 'https://udemy.com/certificate/example'
-    },
-    {
-      id: 6,
-      name: 'Git & GitHub',
-      institution: 'Platzi',
-      logo: 'https://static.platzi.com/media/platzi-isotipo@2x.png',
-      date: '2023',
-      skills: ['Git', 'GitHub', 'Version Control', 'Collaboration'],
-      description: 'Version control fundamentals, Git workflows, branch management, and team collaboration strategies.',
-      credentialUrl: 'https://platzi.com/certificate/example'
-    }
-  ];
+  
 
   const openModal = (cert) => {
     setSelectedCert(cert);
@@ -76,8 +16,17 @@ function About() {
 
   const closeModal = () => {
     setSelectedCert(null);
+      setShowImageModal(false);
     document.body.style.overflow = 'unset';
   };
+
+  const openImageModal = () => {
+  setShowImageModal(true);
+};
+
+const closeImageModal = () => {
+  setShowImageModal(false);
+};
 
   return (
     <div className="about-container">
@@ -195,20 +144,30 @@ function About() {
                   </div>
                 </div>
 
-                {selectedCert.credentialUrl && (
-                  <a 
-                    href={selectedCert.credentialUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="certification-modal__button"
-                  >
-                    View Credential
-                  </a>
+                {selectedCert.credentialImg && (
+                 <button className='certification-modal__button' onClick={(e) => {
+    e.stopPropagation(); // ← Agrega esto
+    openImageModal();
+  }}>
+                  View Credential
+                  </button>
                 )}
               </div>
             </div>
           </div>
         )}
+
+        {/*Modal Cert image*/ }
+        {showImageModal && (
+  <div className="image-modal" onClick={closeImageModal}>
+    <div className="image-modal__content" onClick={(e) => e.stopPropagation()}>
+      <button className="image-modal__close" onClick={closeImageModal}>
+                <X size={24} />
+              </button>
+      <img src={selectedCert.credentialImg} alt="Certificado completo" />
+    </div>
+  </div>
+)}
 
       </div>
     </div>
