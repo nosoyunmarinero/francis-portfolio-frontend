@@ -41,7 +41,7 @@ export const localProjects = [
     image: CrabJump,
     image2: CrabGif,
     liveUrl: "https://nosoyunmarinero.github.io/Crab-Jump/",
-    technologies: ["HTML", "javascript"],
+    technologies: ["html", "javascript", "css"],
     features: ["Canvas", "Local storage", "Loop", "game"],
   },
 ];
