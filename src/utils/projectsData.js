@@ -3,6 +3,7 @@ import AroundImage from "../images/aroundss.png";
 import AroundGif from "../images/Around.gif";
 import CrabJump from "../images/Crab-jump.png"
 import CrabGif from "../images/crab.gif"
+import Equinoux from "../images/Equinox.png"
 
 export const localProjects = [
   {
@@ -34,8 +35,20 @@ export const localProjects = [
     technologies: ["react", "html", "javascript", "express", "mongodb", "node"],
     features: ["Social Media", "Share", "Database"],
   },
-  {
+
+   {
     id: 3,
+    name: "Equinoux",
+    repoName: "Equinoux",
+    image: Equinoux,
+    liveUrl: "https://nosoyunmarinero.github.io/Equinoux/",
+    technologies: ["html", "css", "react", "javascript", "express", "node", "lighthouse", "puppeteer", "axe-core",],
+    features: ["Performance Analysis", "SEO Testing", "Accessibility Audit", "Web Testing"],
+  },
+
+
+  {
+    id: 4,
     name: "Crab Jump",
     repoName: "Crab-Jump",
     image: CrabJump,
