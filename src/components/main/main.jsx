@@ -133,9 +133,7 @@ function Main() {
             <div className="about_text">
               <h2>About Me</h2>
               <p>
-                I'm a passionate full-stack developer who loves creating
-                elegant, functional, and meaningful digital experiences through
-                creativity and code.
+                Full Stack Developer with a focus on frontend and backend development. I work with React, JavaScript, Node.js, and Express to build functional interfaces and clean, secure, well-structured APIs. I’m interested in building complete products, from server-side logic to user experience. My background in QA helps me ensure quality and stability in every delivery.
               </p>
               <Link to="/about" className="about_button">
                 Learn More →
